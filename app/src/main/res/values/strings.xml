@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Widget-Covid-19</string>
+    <string name="total">Всего зараженных:</string>
+</resources>
