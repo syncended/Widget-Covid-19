@@ -1,9 +1,9 @@
 package ru.syncended.widget_covid_19.api
 
 import retrofit2.http.GET
-import retrofit2.http.Query
+import ru.syncended.widget_covid_19.database.Count
 
 interface Request {
     @GET("latestCounts.json")
-    suspend fun getCount(): Array<CountResponse>
+    suspend fun getCount(): Array<Count>
 }
