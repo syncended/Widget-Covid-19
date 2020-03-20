@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="total">Всего зараженных:</string>
+    <string name="loading">Загрузка…</string>
+    <string name="today">Сегодня:</string>
+    <string name="calculating">Подсчитывается…</string>
+</resources>
