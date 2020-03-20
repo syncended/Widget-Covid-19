@@ -4,7 +4,6 @@ package ru.syncended.widget_covid_19
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
-import android.util.Log
 import android.widget.RemoteViews
 import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
@@ -35,11 +34,9 @@ internal fun updateAppWidget(
         val retrofit = NetworkService.retrofit()
         val response = retrofit.getCount()
         text = response[0].caseCount
-        Log.e("tag", "$response")
     }
 
     job.invokeOnCompletion {
-        Log.e("tag", "$it")
         if (it != null) {
             Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
         } else {
