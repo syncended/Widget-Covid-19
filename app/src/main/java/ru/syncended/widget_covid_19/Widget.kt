@@ -33,7 +33,7 @@ internal fun updateAppWidget(
     var text = ""
     val job = GlobalScope.launch(Dispatchers.IO) {
         val retrofit = NetworkService.retrofit()
-        val response = retrofit.getCount(System.currentTimeMillis())
+        val response = retrofit.getCount()
         text = response[0].caseCount
         Log.e("tag", "$response")
     }

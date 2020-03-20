@@ -5,5 +5,5 @@ import retrofit2.http.Query
 
 interface Request {
     @GET("latestCounts.json")
-    suspend fun getCount(@Query("nocache") time: Long): Array<CountResponse>
+    suspend fun getCount(): Array<CountResponse>
 }
