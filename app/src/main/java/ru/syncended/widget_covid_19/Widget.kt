@@ -9,7 +9,7 @@ import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import ru.syncended.widget_covid_19.api.NetworkService
+import ru.syncended.widget_covid_19.network.DataParser
 
 class Widget : AppWidgetProvider() {
 
@@ -23,17 +23,19 @@ class Widget : AppWidgetProvider() {
         }
     }
 
-    //Todo: Calculate today amount
     private fun updateWidget(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int
     ) {
-        var count = ""
+        var total = ""
+        var recovered = ""
+        var dead = ""
         val job = GlobalScope.launch(Dispatchers.IO) {
-//            val retrofit = NetworkService.retrofit()
-//            val response = retrofit.getCount()
-//            count = response[0].caseCount
+            val info = DataParser.getData()
+            total = info.total
+            recovered = info.recovered
+            dead = info.dead
         }
 
         job.invokeOnCompletion {
@@ -41,15 +43,12 @@ class Widget : AppWidgetProvider() {
                 Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
             } else {
                 val views = RemoteViews(context.packageName, R.layout.widget)
-                views.setTextViewText(R.id.text_total, count)
+                views.setTextViewText(R.id.text_total, total)
+                views.setTextViewText(R.id.text_recovered, recovered)
+                views.setTextViewText(R.id.text_death, dead)
 
                 appWidgetManager.updateAppWidget(appWidgetId, views)
             }
         }
     }
-
-    companion object {
-        var lastDate = ""
-    }
-
 }
