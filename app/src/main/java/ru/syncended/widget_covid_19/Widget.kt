@@ -12,39 +12,44 @@ import kotlinx.coroutines.launch
 import ru.syncended.widget_covid_19.api.NetworkService
 
 class Widget : AppWidgetProvider() {
+
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            updateWidget(context, appWidgetManager, appWidgetId)
         }
     }
 
-}
+    //Todo: Calculate today amount
+    private fun updateWidget(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
+    ) {
+        var count = ""
+        val job = GlobalScope.launch(Dispatchers.IO) {
+//            val retrofit = NetworkService.retrofit()
+//            val response = retrofit.getCount()
+//            count = response[0].caseCount
+        }
 
-internal fun updateAppWidget(
-    context: Context,
-    appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
-) {
-    var text = ""
-    val job = GlobalScope.launch(Dispatchers.IO) {
-        val retrofit = NetworkService.retrofit()
-        val response = retrofit.getCount()
-        text = response[0].caseCount
+        job.invokeOnCompletion {
+            if (it != null) {
+                Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+            } else {
+                val views = RemoteViews(context.packageName, R.layout.widget)
+                views.setTextViewText(R.id.text_total, count)
+
+                appWidgetManager.updateAppWidget(appWidgetId, views)
+            }
+        }
     }
 
-    job.invokeOnCompletion {
-        if (it != null) {
-            Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
-        } else {
-            val views = RemoteViews(context.packageName, R.layout.widget)
-            views.setTextViewText(R.id.text_count, text)
-
-            appWidgetManager.updateAppWidget(appWidgetId, views)
-        }
+    companion object {
+        var lastDate = ""
     }
 
 }
