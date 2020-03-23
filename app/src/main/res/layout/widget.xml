@@ -25,11 +25,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            android:layout_marginStart="8dp"
             android:layout_marginEnd="4dp"
+            android:layout_weight="1"
             android:text="@string/total"
+            android:textAlignment="textEnd"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -38,9 +37,9 @@
             android:id="@+id/text_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:text="@string/loading"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="16sp"
@@ -49,11 +48,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
             android:layout_marginEnd="4dp"
-            android:textAlignment="textEnd"
+            android:layout_weight="1"
             android:text="@string/recovered"
+            android:textAlignment="textEnd"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -61,25 +59,50 @@
         <TextView
             android:id="@+id/text_recovered"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:text="@string/loading"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="16sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="4dp"
+            android:text="@string/today"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/loading"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
             android:layout_marginEnd="4dp"
             android:text="@string/death"
             android:textColor="@android:color/holo_red_dark"
@@ -89,10 +112,10 @@
         <TextView
             android:id="@+id/text_death"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:text="@string/loading"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="16sp"

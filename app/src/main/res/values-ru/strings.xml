@@ -4,4 +4,5 @@
     <string name="loading">Загрузка…</string>
     <string name="death">Смерти:</string>
     <string name="recovered">Вылечено:</string>
+    <string name="today">Сегодня:</string>
 </resources>

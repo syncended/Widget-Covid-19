@@ -4,4 +4,5 @@
     <string name="loading">Loading…</string>
     <string name="death">Death:</string>
     <string name="recovered">Recovered:</string>
+    <string name="today">Today:</string>
 </resources>
