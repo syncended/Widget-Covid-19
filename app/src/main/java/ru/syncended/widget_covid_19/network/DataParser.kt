@@ -8,11 +8,9 @@ object DataParser {
 
     fun getData(): InfectionStatistics {
         val doc = Jsoup.connect(URL).get()
-        Log.e("tag", doc.html())
         val total = doc.getElementById("valueTot")
         val recovered = doc.getElementById("valueRec")
         val dead = doc.getElementById("valueDed")
-
         return InfectionStatistics(total.text(), recovered.text(), dead.text())
     }
 }
